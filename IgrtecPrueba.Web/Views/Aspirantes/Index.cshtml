@@ -1,0 +1,107 @@
+﻿@model List<IgrtecPrueba.Web.Models.Aspirante>
+@{
+    ViewData["Title"] = "Aspirantes";
+}
+
+
+<style>
+    .btn-create {
+        background-color: #7241BC; 
+        border-color: #9d7bd1;
+        color: #ffffff;
+    }
+
+    .btn-create:hover {
+            background-color: #875dc6; /* Rojo más oscuro al pasar el ratón */
+            border-color: #9d7bd1; /* Borde rojo más oscuro al pasar el ratón */
+        color: #ffffff; /* Texto blanco */
+    }
+
+    .btn-edit {
+        background-color: #558527;
+        border-color: ##558527;
+        color: #ffffff;
+    }
+
+    .btn-edit:hover {
+            background-color: #aed07b; /* Rojo más oscuro al pasar el ratón */
+            border-color: #326316; /* Borde rojo más oscuro al pasar el ratón */
+        color: #ffffff; /* Texto blanco */
+    }
+</style>
+<div class="pagetitle">
+    <h1>Aspirantes</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item">Aspirantes</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12" style="height:60vh">
+
+            <div class="card" style="height:100%;">
+                <div class="card-body" style="height:100%;">
+                    <div class="d-flex justify-content-between">
+                        <form asp-action="Index" class="d-flex col-sm-8 flex-row">
+                            <!-- Barra de búsqueda -->
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="buscarItem" value="" placeholder="Buscar...">
+                                    <button value="Search" class="btn btn-create" type="submit">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-right">
+                            <!-- Botón para crear un registro -->
+                            <a asp-action="Create" class="btn btn-create">Nuevo Aspirante</a>
+
+                        </div>
+                    </div>
+
+                    <div style="height:90%; overflow-y:auto">
+                        <!-- Table with hoverable rows -->
+                        <table class="table table-hover ">
+                            <thead>
+                                <tr class="table-dark">
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Coreo Electrónico</th>
+                                    <th scope="col">Lugar de Nacimiento</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var aspirante in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@aspirante.Id</th>
+                                        <td>@aspirante.Nombre</td>
+                                        <td>@aspirante.Apellido</td>
+                                        <td>@aspirante.NumTelefonico</td>
+                                        <td>@aspirante.CorreoElectronico</td>
+                                        <td>@aspirante.LugarNacimiento</td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@aspirante.Id" class="btn btn-edit">Editar</a>
+                                            <a asp-controller="Aspirantes" asp-action="Delete" asp-route-id="@aspirante.Id" class="btn btn-danger btn-md">Eliminar</a>
+                                        </td>
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- End Table with hoverable rows -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

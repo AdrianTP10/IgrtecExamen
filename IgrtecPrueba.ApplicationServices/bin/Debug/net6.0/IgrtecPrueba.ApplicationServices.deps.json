@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "IgrtecPrueba.ApplicationServices/1.0.0": {
+        "dependencies": {
+          "IgrtecPrueba.Web": "1.0.0"
+        },
+        "runtime": {
+          "IgrtecPrueba.ApplicationServices.dll": {}
+        }
+      },
+      "IgrtecPrueba.Web/1.0.0": {
+        "runtime": {
+          "IgrtecPrueba.Web.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "IgrtecPrueba.ApplicationServices/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IgrtecPrueba.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
